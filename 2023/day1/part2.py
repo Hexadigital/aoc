@@ -6,27 +6,6 @@ with open('input') as in_file:
 
 total = 0
 
-# Find initial solution
-'''for line in lines:
-    new_line = ''
-    for i in range(0, len(line)):
-        if line[i].isnumeric():
-            new_line += line[i]
-        else:
-            new_line += '|'
-    print(new_line)
-    while '||' in new_line:
-        new_line = new_line.replace('||', '|')
-    numbers = new_line.split('|')
-    if numbers[0] == '':
-        numbers = numbers[1:]
-    if numbers[-1] == '':
-        numbers = numbers[:-1]
-    print(numbers)
-    num = numbers[0][0]
-    num += numbers[-1][-1]
-    total += int(num)'''
-
 # Find solution with text numbers included
 replacements = {
     'one': 'on1e',
@@ -70,10 +49,7 @@ for line in lines:
                 if line.rindex(r) > latest_index:
                     latest_number = r
                     latest_index = line.rindex(r)
-        #line = line.replace(latest_number, replacements[latest_number], 1)
-        print('HEY', line)
         line = line[:latest_index] + replacements[latest_number] + line[latest_index + len(latest_number):]
-        print('HO', line)
         
     print(line)
     for i in range(0, len(line)):
